@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yolanda Mbande | Junior Software Developer Portfolio</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Bungee / Plus Jakarta Sans / Permanent Marker for playful headers & hand-drawn notes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Permanent+Marker&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              hot: '#FF2A85',
+              pink: '#FF69B4',
+              soft: '#FFD1E8',
+              pastel: '#FFF0F6',
+              dark: '#1E1B1D',
+              yellow: '#FFDE59',
+              teal: '#40E0D0',
+              lavender: '#E0BBE4',
+              orange: '#FF914D'
+            }
+          },
+          fontFamily: {
+            display: ['Bungee', 'cursive', 'sans-serif'],
+            hand: ['Permanent Marker', 'cursive'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          boxShadow: {
+            'brutal': '5px 5px 0px #1E1B1D',
+            'brutal-lg': '8px 8px 0px #1E1B1D',
+            'brutal-sm': '3px 3px 0px #1E1B1D',
+            'brutal-hover': '2px 2px 0px #1E1B1D'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Neo-Brutalist Custom Utilities */
+    body {
+      background-color: #FFF0F6;
+      color: #1E1B1D;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .neo-border {
+      border: 3px solid #1E1B1D;
+    }
+
+    .neo-card {
+      border: 3px solid #1E1B1D;
+      box-shadow: 6px 6px 0px #1E1B1D;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .neo-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 9px 9px 0px #1E1B1D;
+    }
+
+    .neo-btn {
+      border: 3px solid #1E1B1D;
+      box-shadow: 4px 4px 0px #1E1B1D;
+      font-weight: 700;
+      transition: all 0.15s ease-in-out;
+    }
+
+    .neo-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #1E1B1D;
+    }
+
+    .neo-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #1E1B1D;
+    }
+
+    /* Sticker Floating Animations */
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0px) rotate(-3deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+    @keyframes float-reverse {
+      0%, 100% { transform: translateY(0px) rotate(4deg); }
+      50% { transform: translateY(-10px) rotate(-2deg); }
+    }
+
+    .sticker-float {
+      animation: float-slow 4s ease-in-out infinite;
+    }
+
+    .sticker-float-rev {
+      animation: float-reverse 5s ease-in-out infinite;
+    }
+
+    /* Paper notebook effect */
+    .notebook-holes {
+      background-image: radial-gradient(#1E1B1D 30%, transparent 31%);
+      background-size: 20px 20px;
+      background-position: center top;
+    }
+
+    /* Tape overlay effect */
+    .tape-top {
+      position: relative;
+    }
+    .tape-top::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      width: 110px;
+      height: 26px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border: 1px dashed rgba(0,0,0,0.2);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    /* Custom Toast Notification */
+    #copy-toast {
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-hot selection:text-white">
+
+  <!-- ================= TOP NAVIGATION BAR ================= -->
+  <header class="sticky top-0 z-50 bg-brand-soft/95 backdrop-blur-md border-b-4 border-brand-dark px-4 py-3">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <!-- Logo Badge -->
+      <a href="#" class="neo-btn bg-brand-yellow px-4 py-1.5 rounded-xl font-display text-lg tracking-wider text-brand-dark hover:bg-white flex items-center gap-2">
+        <span class="w-3 h-3 bg-brand-hot rounded-full border-2 border-brand-dark"></span>
+        YM.DEV
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-4 font-bold text-sm">
+        <a href="#about" class="neo-btn bg-white px-4 py-1.5 rounded-lg hover:bg-brand-yellow">About</a>
+        <a href="#work" class="neo-btn bg-white px-4 py-1.5 rounded-lg hover:bg-brand-teal">Selected Work</a>
+        <a href="#experience" class="neo-btn bg-white px-4 py-1.5 rounded-lg hover:bg-brand-soft">Experience</a>
+        <a href="#tools" class="neo-btn bg-white px-4 py-1.5 rounded-lg hover:bg-brand-orange">Tools</a>
+      </nav>
+
+      <!-- Let's Talk CTA -->
+      <a href="#contact" class="neo-btn bg-brand-hot text-white px-5 py-2 rounded-xl text-sm font-extrabold flex items-center gap-2 hover:bg-brand-dark hover:text-brand-soft">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>LET'S TALK</span>
+      </a>
+    </div>
+  </header>
+
+
+  <!-- ================= HERO / HEADER BANNER ================= -->
+  <section class="relative pt-12 pb-16 px-4 overflow-hidden bg-brand-soft border-b-4 border-brand-dark">
+    <!-- Floating Decorative Doodles / Stickers -->
+    <div class="absolute top-10 left-[8%] hidden lg:block sticker-float">
+      <div class="neo-btn bg-brand-yellow px-4 py-2 rounded-2xl font-hand text-lg rotate-[-8deg] flex items-center gap-2">
+        <i class="fa-solid fa-wand-magic-sparkles text-brand-hot"></i>
+        <span>FinTech & AI</span>
+      </div>
+    </div>
+
+    <div class="absolute top-24 right-[10%] hidden lg:block sticker-float-rev">
+      <div class="neo-btn bg-brand-teal px-4 py-2 rounded-2xl font-hand text-lg rotate-[12deg] flex items-center gap-2">
+        <i class="fa-solid fa-code text-brand-dark"></i>
+        <span>Full Stack</span>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-[12%] hidden lg:block sticker-float-rev">
+      <div class="neo-btn bg-brand-lavender px-3 py-1.5 rounded-xl font-bold text-sm rotate-[5deg]">
+        📍 Cape Town, ZA
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      
+      <!-- Greeting Pill -->
+      <div class="inline-flex items-center gap-2 neo-btn bg-white px-5 py-2 rounded-full text-sm mb-6 font-hand text-lg">
+        <span class="animate-bounce">👋</span>
+        <span>Hey, I'm</span>
+      </div>
+
+      <!-- Main Name Heading -->
+      <h1 class="font-display text-5xl sm:text-7xl md:text-8xl text-brand-dark tracking-tight leading-none mb-4 uppercase drop-shadow-sm">
+        YOLANDA <br/>
+        <span class="text-brand-hot underline decoration-wavy decoration-brand-yellow decoration-4">MBANDE</span>
+      </h1>
+
+      <!-- Floating Stack Tags -->
+      <div class="flex flex-wrap justify-center gap-2 my-6">
+        <span class="neo-btn bg-brand-yellow text-brand-dark px-3 py-1 rounded-lg text-xs font-extrabold uppercase">Java</span>
+        <span class="neo-btn bg-brand-teal text-brand-dark px-3 py-1 rounded-lg text-xs font-extrabold uppercase">Laravel</span>
+        <span class="neo-btn bg-brand-pink text-white px-3 py-1 rounded-lg text-xs font-extrabold uppercase">JavaScript / React</span>
+        <span class="neo-btn bg-brand-lavender text-brand-dark px-3 py-1 rounded-lg text-xs font-extrabold uppercase">PHP & SQL</span>
+        <span class="neo-btn bg-white text-brand-dark px-3 py-1 rounded-lg text-xs font-extrabold uppercase">RAG & LLMs</span>
+      </div>
+
+      <!-- Subheadline -->
+      <p class="text-lg sm:text-2xl font-bold text-brand-dark max-w-2xl mx-auto mb-8 leading-snug">
+        I build clean, reliable web & backend software solutions that make life simple and enjoyable.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#work" class="w-full sm:w-auto neo-btn bg-brand-hot text-white text-lg px-8 py-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-brand-dark">
+          <i class="fa-solid fa-eye"></i>
+          <span>SEE MY WORK</span>
+        </a>
+        
+        <a href="Yolanda_Mbande_Junior_Developer_CV.pdf" target="_blank" class="w-full sm:w-auto neo-btn bg-white text-brand-dark text-lg px-6 py-4 rounded-2xl flex items-center justify-center gap-2 hover:bg-brand-yellow">
+          <i class="fa-solid fa-file-pdf text-brand-hot"></i>
+          <span>Grab My Resume</span>
+        </a>
+      </div>
+
+      <!-- Status Banner -->
+      <div class="mt-8 inline-flex items-center gap-3 neo-btn bg-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+        </span>
+        <span>OPEN TO FULL-TIME ROLES • CAPE TOWN & REMOTE</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= A BIT ABOUT ME SECTION ================= -->
+  <section id="about" class="py-16 px-4 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Notebook Container -->
+      <div class="md:col-span-8 neo-card bg-white rounded-3xl p-6 sm:p-8 relative tape-top">
+        <!-- Hole punches for notebook look -->
+        <div class="flex justify-between border-b-2 border-dashed border-gray-300 pb-4 mb-6 px-2">
+          <span class="w-4 h-4 rounded-full bg-brand-dark"></span>
+          <span class="w-4 h-4 rounded-full bg-brand-dark"></span>
+          <span class="w-4 h-4 rounded-full bg-brand-dark"></span>
+          <span class="w-4 h-4 rounded-full bg-brand-dark"></span>
+          <span class="w-4 h-4 rounded-full bg-brand-dark"></span>
+        </div>
+
+        <h2 class="font-display text-3xl sm:text-4xl text-brand-dark mb-4">A BIT ABOUT ME</h2>
+        
+        <p class="text-gray-800 font-medium text-base sm:text-lg leading-relaxed mb-4">
+          I'm a Junior Software Developer based in Cape Town with a <strong class="bg-brand-soft px-1 rounded">Diploma in Computer Science from Tshwane University of Technology</strong>.
+        </p>
+
+        <p class="text-gray-800 font-medium text-base sm:text-lg leading-relaxed mb-6">
+          Over the past 2 years through internships and dev roles, I’ve worked on web application features, backend services, RESTful APIs, and database logic. I routinely use AI coding assistants (Copilot, Claude) with a disciplined approach—ensuring I understand every line of code I ship while adhering strictly to safe data practices.
+        </p>
+
+        <!-- Skill Badges -->
+        <div class="flex flex-wrap gap-2 pt-2 border-t-2 border-brand-dark">
+          <span class="neo-btn bg-brand-pink text-white px-3 py-1 rounded-lg text-xs font-extrabold">C# / .NET</span>
+          <span class="neo-btn bg-brand-yellow px-3 py-1 rounded-lg text-xs font-extrabold">Python</span>
+          <span class="neo-btn bg-brand-teal px-3 py-1 rounded-lg text-xs font-extrabold">JavaScript / React</span>
+          <span class="neo-btn bg-brand-lavender px-3 py-1 rounded-lg text-xs font-extrabold">SQL Databases</span>
+          <span class="neo-btn bg-brand-orange text-white px-3 py-1 rounded-lg text-xs font-extrabold">REST APIs</span>
+          <span class="neo-btn bg-white px-3 py-1 rounded-lg text-xs font-extrabold">Git & CI/CD</span>
+        </div>
+
+        <p class="font-hand text-lg text-brand-hot mt-6">
+          ~ currently building secure fintech integrations & mastering modern LLM workflows (RAG)
+        </p>
+      </div>
+
+      <!-- Right Column: Polaroid + Callout Cards -->
+      <div class="md:col-span-4 flex flex-col gap-6">
+        
+        <!-- Polaroid Profile -->
+        <div class="neo-card bg-white p-4 rounded-2xl rotate-2 text-center">
+
+  <div class="w-full h-48 rounded-xl border-2 border-brand-dark relative overflow-hidden mb-3">
+
+    <img
+      src="my-photo.jpg"
+      alt="Yolanda Mbande"
+      class="w-full h-full object-cover object-center"
+    >
+
+  </div>
+
+  <p class="font-hand text-lg text-brand-dark">
+    me, writing clean & tested code 🚀
+  </p>
+
+</div>
+
+        <!-- Sticky Note Callout 1 -->
+        <div class="neo-card bg-brand-yellow p-5 rounded-2xl rotate-[-3deg]">
+          <span class="font-display text-3xl text-brand-dark block mb-1">2+ YEARS</span>
+          <p class="font-bold text-xs uppercase text-brand-dark tracking-wide">
+            Practical software development & internship experience
+          </p>
+        </div>
+
+        <!-- Sticky Note Callout 2 -->
+        <div class="neo-card bg-brand-teal p-5 rounded-2xl rotate-[2deg]">
+          <span class="font-display text-3xl text-brand-dark block mb-1">100% SECURE</span>
+          <p class="font-bold text-xs uppercase text-brand-dark tracking-wide">
+            Background in internet security & data protection (POPIA)
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= TEAMS SHIPPED WITH ================= -->
+  <section class="py-10 bg-brand-soft border-y-4 border-brand-dark">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h3 class="font-hand text-2xl text-brand-dark mb-6">teams & organizations I've worked with ↓</h3>
+      
+      <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6">
+        <span class="neo-btn bg-brand-yellow px-5 py-2.5 rounded-2xl text-base font-extrabold uppercase">
+          Spacebar Solutions
+        </span>
+        <span class="neo-btn bg-brand-pink text-white px-5 py-2.5 rounded-2xl text-base font-extrabold uppercase">
+          Teambix (Pty) Ltd
+        </span>
+        <span class="neo-btn bg-brand-teal px-5 py-2.5 rounded-2xl text-base font-extrabold uppercase">
+          TUT Internet Security
+        </span>
+        <span class="neo-btn bg-brand-lavender px-5 py-2.5 rounded-2xl text-base font-extrabold uppercase">
+          Open Source / Vercel
+        </span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= SELECTED WORK / PROJECTS ================= -->
+ 
+<!-- ================= SELECTED WORK / PROJECTS ================= -->
+<section id="work" class="py-20 px-4 bg-brand-yellow border-b-4 border-brand-dark relative">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div>
+        <span class="font-hand text-2xl text-brand-hot block mb-1">
+          a little bit of everything I've built ✨
+        </span>
+        <h2 class="font-display text-4xl sm:text-6xl text-brand-dark">
+          SELECTED WORK
+        </h2>
+      </div>
+
+      <p class="font-bold text-sm text-brand-dark bg-white neo-btn px-4 py-2 rounded-xl inline-block">
+        09 PROJECTS • CLICK NEXT / PREV
+      </p>
+    </div>
+
+    <!-- Carousel -->
+    <div class="relative">
+
+      <div id="carousel-cards" class="min-h-[460px]">
+
+        <!-- PROJECT 01: UNSAID -->
+        <div class="project-slide neo-card bg-white rounded-3xl p-6 sm:p-10 border-4 border-brand-dark">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <div class="lg:col-span-5 bg-brand-soft neo-border p-6 rounded-2xl text-center relative overflow-hidden">
+              <span class="absolute top-3 left-3 neo-btn bg-brand-yellow text-xs px-2.5 py-1 rounded-md font-bold">
+                01 / 09
+              </span>
+              <i class="fa-solid fa-book-open text-7xl text-brand-hot my-6"></i>
+              <div class="font-display text-xl text-brand-dark">UNSAID</div>
+              <span class="text-xs font-bold text-gray-600">
+                Creative Web Experience
+              </span>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <span class="neo-btn bg-brand-pink text-white text-xs px-3 py-1 rounded-lg font-extrabold">
+                  LIVE PROJECT
+                </span>
+
+                <h3 class="font-display text-3xl text-brand-dark mt-5 mb-3">
+                  Unsaid
+                </h3>
+
+                <p class="text-gray-700 font-medium mb-6 leading-relaxed">
+                  An interactive web project exploring storytelling and creative
+                  digital experiences.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      CATEGORY
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Creative Web App
+                    </span>
+                  </div>
+
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      STATUS
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Live
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://unsaid-92n9.onrender.com/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="neo-btn bg-brand-hot text-white px-5 py-2.5 rounded-xl text-sm font-extrabold inline-flex items-center gap-2 self-start hover:bg-brand-dark">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Visit Live Site
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROJECT 02: NESTASHOTS -->
+        <div class="project-slide neo-card bg-white rounded-3xl p-6 sm:p-10 border-4 border-brand-dark hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <div class="lg:col-span-5 bg-brand-teal neo-border p-6 rounded-2xl text-center relative overflow-hidden">
+              <span class="absolute top-3 left-3 neo-btn bg-brand-yellow text-xs px-2.5 py-1 rounded-md font-bold">
+                02 / 09
+              </span>
+              <i class="fa-solid fa-camera-retro text-7xl text-brand-dark my-6"></i>
+              <div class="font-display text-xl text-brand-dark">NESTASHOTS</div>
+              <span class="text-xs font-bold text-gray-600">
+                Photography Portfolio
+              </span>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <span class="neo-btn bg-brand-yellow text-xs px-3 py-1 rounded-lg font-extrabold">
+                  GITHUB PAGES
+                </span>
+
+                <h3 class="font-display text-3xl text-brand-dark mt-5 mb-3">
+                  NestaShots Photography
+                </h3>
+
+                <p class="text-gray-700 font-medium mb-6 leading-relaxed">
+                  A responsive photography portfolio featuring image galleries,
+                  category filtering, interactive previews, and a visual-first layout.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      ROLE
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Frontend Developer
+                    </span>
+                  </div>
+
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      STACK
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      HTML, CSS, JavaScript
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://yolandambande.github.io/nestashots/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="neo-btn bg-brand-hot text-white px-5 py-2.5 rounded-xl text-sm font-extrabold inline-flex items-center gap-2 self-start hover:bg-brand-dark">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Visit Live Site
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROJECT 03: LINK CARD -->
+        <div class="project-slide neo-card bg-white rounded-3xl p-6 sm:p-10 border-4 border-brand-dark hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <div class="lg:col-span-5 bg-brand-lavender neo-border p-6 rounded-2xl text-center relative overflow-hidden">
+              <span class="absolute top-3 left-3 neo-btn bg-brand-yellow text-xs px-2.5 py-1 rounded-md font-bold">
+                03 / 09
+              </span>
+              <i class="fa-solid fa-link text-7xl text-brand-dark my-6"></i>
+              <div class="font-display text-xl text-brand-dark">LINK CARD</div>
+              <span class="text-xs font-bold text-gray-600">
+                Personal Link Hub
+              </span>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <span class="neo-btn bg-brand-teal text-xs px-3 py-1 rounded-lg font-extrabold">
+                  VERCEL DEPLOYMENT
+                </span>
+
+                <h3 class="font-display text-3xl text-brand-dark mt-5 mb-3">
+                  Link Card
+                </h3>
+
+                <p class="text-gray-700 font-medium mb-6 leading-relaxed">
+                  A personal link hub with responsive design, custom backgrounds,
+                  theme switching, and quick access to social profiles and projects.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      ROLE
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Frontend Developer
+                    </span>
+                  </div>
+
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      STACK
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      HTML, CSS, JavaScript
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://yolanda-links.vercel.app/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="neo-btn bg-brand-teal text-brand-dark px-5 py-2.5 rounded-xl text-sm font-extrabold inline-flex items-center gap-2 self-start hover:bg-brand-dark hover:text-white">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Visit Live Site
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROJECT 04: BLOCK JEWEL -->
+        <div class="project-slide neo-card bg-white rounded-3xl p-6 sm:p-10 border-4 border-brand-dark hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <div class="lg:col-span-5 bg-brand-orange neo-border p-6 rounded-2xl text-center relative overflow-hidden">
+              <span class="absolute top-3 left-3 neo-btn bg-brand-yellow text-xs px-2.5 py-1 rounded-md font-bold">
+                04 / 09
+              </span>
+              <i class="fa-solid fa-gamepad text-7xl text-white my-6"></i>
+              <div class="font-display text-xl text-white">BLOCK JEWEL</div>
+              <span class="text-xs font-bold text-brand-dark bg-white px-2 py-1 rounded">
+                JavaScript Puzzle Game
+              </span>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <span class="neo-btn bg-brand-lavender text-xs px-3 py-1 rounded-lg font-extrabold">
+                  BROWSER GAME
+                </span>
+
+                <h3 class="font-display text-3xl text-brand-dark mt-5 mb-3">
+                  Block Jewel
+                </h3>
+
+                <p class="text-gray-700 font-medium mb-6 leading-relaxed">
+                  An interactive block puzzle game featuring an 8×8 grid,
+                  scoring mechanics, levels, and JavaScript-powered gameplay.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      CATEGORY
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Game Development
+                    </span>
+                  </div>
+
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      STACK
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      HTML, CSS, JavaScript
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://block-puzzle-amber.vercel.app/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="neo-btn bg-brand-hot text-white px-5 py-2.5 rounded-xl text-sm font-extrabold inline-flex items-center gap-2 self-start hover:bg-brand-dark">
+                <i class="fa-solid fa-play"></i>
+                Play Game
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROJECT 05: EASYBOOKING -->
+        <div class="project-slide neo-card bg-white rounded-3xl p-6 sm:p-10 border-4 border-brand-dark hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <div class="lg:col-span-5 bg-brand-yellow neo-border p-6 rounded-2xl text-center relative overflow-hidden">
+              <span class="absolute top-3 left-3 neo-btn bg-white text-xs px-2.5 py-1 rounded-md font-bold">
+                05 / 09
+              </span>
+              <i class="fa-solid fa-calendar-check text-7xl text-brand-hot my-6"></i>
+              <div class="font-display text-xl text-brand-dark">EASYBOOKING</div>
+              <span class="text-xs font-bold text-gray-600">
+                Reservation Platform
+              </span>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <span class="neo-btn bg-brand-pink text-white text-xs px-3 py-1 rounded-lg font-extrabold">
+                  GITHUB REPOSITORY
+                </span>
+
+                <h3 class="font-display text-3xl text-brand-dark mt-5 mb-3">
+                  EasyBooking Platform
+                </h3>
+
+                <p class="text-gray-700 font-medium mb-6 leading-relaxed">
+                  A reservation management project focused on booking workflows,
+                  backend functionality, and database-driven development.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      CATEGORY
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Web Application
+                    </span>
+                  </div>
+
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      STACK
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      PHP, MySQL
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://github.com/YolandaMbande/easybooking"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="neo-btn bg-brand-dark text-white px-5 py-2.5 rounded-xl text-sm font-extrabold inline-flex items-center gap-2 self-start hover:bg-brand-hot">
+                <i class="fa-brands fa-github"></i>
+                View Repository
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROJECT 06: WHAT NOW? -->
+        <div class="project-slide neo-card bg-white rounded-3xl p-6 sm:p-10 border-4 border-brand-dark hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <div class="lg:col-span-5 bg-brand-soft neo-border p-6 rounded-2xl text-center relative overflow-hidden">
+              <span class="absolute top-3 left-3 neo-btn bg-brand-yellow text-xs px-2.5 py-1 rounded-md font-bold">
+                06 / 09
+              </span>
+              <i class="fa-solid fa-circle-question text-7xl text-brand-hot my-6"></i>
+              <div class="font-display text-xl text-brand-dark">WHAT NOW?</div>
+              <span class="text-xs font-bold text-gray-600">
+                Interactive Web Project
+              </span>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <span class="neo-btn bg-brand-yellow text-xs px-3 py-1 rounded-lg font-extrabold">
+                  GITHUB PAGES
+                </span>
+
+                <h3 class="font-display text-3xl text-brand-dark mt-5 mb-3">
+                  WHAT NOW?
+                </h3>
+
+                <p class="text-gray-700 font-medium mb-6 leading-relaxed">
+                  A creative interactive web project built with frontend
+                  technologies and a playful approach to user experience.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      CATEGORY
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Interactive Website
+                    </span>
+                  </div>
+
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      STATUS
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Live
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://yolandambande.github.io/what-now/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="neo-btn bg-brand-hot text-white px-5 py-2.5 rounded-xl text-sm font-extrabold inline-flex items-center gap-2 self-start hover:bg-brand-dark">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Explore Project
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROJECT 07: CASCADE INSPECTOR -->
+        <div class="project-slide neo-card bg-white rounded-3xl p-6 sm:p-10 border-4 border-brand-dark hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <div class="lg:col-span-5 bg-brand-teal neo-border p-6 rounded-2xl text-center relative overflow-hidden">
+              <span class="absolute top-3 left-3 neo-btn bg-brand-yellow text-xs px-2.5 py-1 rounded-md font-bold">
+                07 / 09
+              </span>
+              <i class="fa-solid fa-code text-7xl text-brand-dark my-6"></i>
+              <div class="font-display text-xl text-brand-dark">CASCADE INSPECTOR</div>
+              <span class="text-xs font-bold text-gray-600">
+                Frontend Developer Tool
+              </span>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <span class="neo-btn bg-brand-lavender text-xs px-3 py-1 rounded-lg font-extrabold">
+                  DEVELOPER PROJECT
+                </span>
+
+                <h3 class="font-display text-3xl text-brand-dark mt-5 mb-3">
+                  Cascade Inspector
+                </h3>
+
+                <p class="text-gray-700 font-medium mb-6 leading-relaxed">
+                  A frontend developer project exploring CSS styling
+                  and the behaviour of cascading styles.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      CATEGORY
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Developer Tool
+                    </span>
+                  </div>
+
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      FOCUS
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      CSS & Frontend
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://yolandambande.github.io/Cascade-Inspector/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="neo-btn bg-brand-hot text-white px-5 py-2.5 rounded-xl text-sm font-extrabold inline-flex items-center gap-2 self-start hover:bg-brand-dark">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Explore Project
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROJECT 08: HOME SWEET HOUND -->
+        <div class="project-slide neo-card bg-white rounded-3xl p-6 sm:p-10 border-4 border-brand-dark hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <div class="lg:col-span-5 bg-brand-lavender neo-border p-6 rounded-2xl text-center relative overflow-hidden">
+              <span class="absolute top-3 left-3 neo-btn bg-brand-yellow text-xs px-2.5 py-1 rounded-md font-bold">
+                08 / 09
+              </span>
+              <i class="fa-solid fa-paw text-7xl text-brand-dark my-6"></i>
+              <div class="font-display text-xl text-brand-dark">HOME SWEET HOUND</div>
+              <span class="text-xs font-bold text-gray-600">
+                Pet-Themed Website
+              </span>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <span class="neo-btn bg-brand-teal text-xs px-3 py-1 rounded-lg font-extrabold">
+                  GITHUB PAGES
+                </span>
+
+                <h3 class="font-display text-3xl text-brand-dark mt-5 mb-3">
+                  Home Sweet Hound
+                </h3>
+
+                <p class="text-gray-700 font-medium mb-6 leading-relaxed">
+                  A pet-themed website with playful styling,
+                  responsive layouts, and a welcoming visual design.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      CATEGORY
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Website
+                    </span>
+                  </div>
+
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      FOCUS
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Responsive UI
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://yolandambande.github.io/home-sweet-hound/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="neo-btn bg-brand-hot text-white px-5 py-2.5 rounded-xl text-sm font-extrabold inline-flex items-center gap-2 self-start hover:bg-brand-dark">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Visit Website
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROJECT 09: JUST TODAY -->
+        <div class="project-slide neo-card bg-white rounded-3xl p-6 sm:p-10 border-4 border-brand-dark hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <div class="lg:col-span-5 bg-brand-pink neo-border p-6 rounded-2xl text-center relative overflow-hidden">
+              <span class="absolute top-3 left-3 neo-btn bg-brand-yellow text-xs px-2.5 py-1 rounded-md font-bold">
+                09 / 09
+              </span>
+              <i class="fa-solid fa-list-check text-7xl text-white my-6"></i>
+              <div class="font-display text-xl text-white">JUST TODAY</div>
+              <span class="text-xs font-bold text-white">
+                Daily Productivity App
+              </span>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <span class="neo-btn bg-brand-yellow text-xs px-3 py-1 rounded-lg font-extrabold">
+                  PRODUCTIVITY APP
+                </span>
+
+                <h3 class="font-display text-3xl text-brand-dark mt-5 mb-3">
+                  Just Today
+                </h3>
+
+                <p class="text-gray-700 font-medium mb-6 leading-relaxed">
+                  A productivity-focused web application designed around
+                  managing daily tasks and building consistent habits.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-6 text-xs">
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      CATEGORY
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Productivity
+                    </span>
+                  </div>
+
+                  <div class="neo-btn bg-brand-pastel p-3 rounded-xl">
+                    <span class="block font-bold text-brand-hot uppercase mb-1">
+                      STATUS
+                    </span>
+                    <span class="font-semibold text-gray-800">
+                      Live
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://yolandambande.github.io/just-today/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="neo-btn bg-brand-hot text-white px-5 py-2.5 rounded-xl text-sm font-extrabold inline-flex items-center gap-2 self-start hover:bg-brand-dark">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Explore Project
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Navigation -->
+      <div class="flex items-center justify-between mt-8 gap-4">
+
+        <button
+          id="prev-btn"
+          type="button"
+          onclick="prevSlide()"
+          class="neo-btn bg-white px-5 py-2.5 rounded-xl text-sm font-extrabold flex items-center gap-2 hover:bg-brand-soft">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>PREV</span>
+        </button>
+
+        <span
+          id="slide-counter"
+          class="font-display text-lg text-brand-dark"
+          aria-live="polite">
+          01 / 09
+        </span>
+
+        <button
+          id="next-btn"
+          type="button"
+          onclick="nextSlide()"
+          class="neo-btn bg-brand-hot text-white px-5 py-2.5 rounded-xl text-sm font-extrabold flex items-center gap-2 hover:bg-brand-dark">
+          <span>NEXT</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- ================= WHERE I'VE WORKED / EXPERIENCE TIMELINE ================= -->
+  <section id="experience" class="py-20 px-4 max-w-5xl mx-auto">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div>
+        <span class="font-hand text-2xl text-brand-hot block mb-1">career history & track record</span>
+        <h2 class="font-display text-4xl sm:text-6xl text-brand-dark">WHERE I'VE WORKED</h2>
+      </div>
+      <div class="neo-btn bg-brand-pink text-white px-4 py-2 rounded-xl text-xs font-bold">
+        DIPLOMA IN COMPUTER SCIENCE (TUT)
+      </div>
+    </div>
+
+    <!-- Timeline List -->
+    <div class="space-y-6">
+      
+      <!-- ROLE 1 -->
+      <div class="neo-card bg-white p-6 sm:p-8 rounded-3xl border-4 border-brand-dark">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+          <div class="md:col-span-3">
+            <span class="neo-btn bg-brand-yellow px-3 py-1 rounded-lg text-xs font-extrabold text-brand-dark inline-block mb-2">
+              SEP 2025 – APR 2026
+            </span>
+            <h3 class="font-display text-xl text-brand-dark">Software Developer</h3>
+            <p class="font-bold text-sm text-brand-hot">Spacebar Solutions</p>
+          </div>
+          <div class="md:col-span-9 border-t-2 md:border-t-0 md:border-l-2 border-gray-200 pt-4 md:pt-0 md:pl-6">
+            <ul class="space-y-2 text-gray-700 font-medium text-sm sm:text-base list-disc list-inside">
+              <li>Assisted in maintaining and supporting web applications built with backend services and dynamic web logic.</li>
+              <li>Leveraged AI coding assistants to accelerate feature delivery, rigorously auditing AI-generated outputs and protecting sensitive payment/user data.</li>
+              <li>Conducted systematic debugging, root-cause analysis, and log inspection to resolve application errors and ensure reliability.</li>
+              <li>Utilized Git for version control and issue tracking, ensuring clean code updates across internal repositories.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROLE 2 -->
+      <div class="neo-card bg-white p-6 sm:p-8 rounded-3xl border-4 border-brand-dark">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+          <div class="md:col-span-3">
+            <span class="neo-btn bg-brand-teal px-3 py-1 rounded-lg text-xs font-extrabold text-brand-dark inline-block mb-2">
+              AUG 2024 – AUG 2025
+            </span>
+            <h3 class="font-display text-xl text-brand-dark">Software Developer Intern</h3>
+            <p class="font-bold text-sm text-brand-hot">Teambix (Pty) Ltd</p>
+          </div>
+          <div class="md:col-span-9 border-t-2 md:border-t-0 md:border-l-2 border-gray-200 pt-4 md:pt-0 md:pl-6">
+            <ul class="space-y-2 text-gray-700 font-medium text-sm sm:text-base list-disc list-inside">
+              <li>Contributed to web application feature updates, database validation, and UI/backend integration testing using modern programming tools.</li>
+              <li>Used AI coding tools safely to write clean code, maintaining accountability for explaining every pull request during team code reviews.</li>
+              <li>Identified, replicated, and documented bugs with context notes to streamline feature fixes and code refactoring.</li>
+              <li>Participated in Agile sprint planning, daily stand-ups, and retrospectives while creating detailed technical documentation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROLE 3 -->
+      <div class="neo-card bg-white p-6 sm:p-8 rounded-3xl border-4 border-brand-dark">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+          <div class="md:col-span-3">
+            <span class="neo-btn bg-brand-lavender px-3 py-1 rounded-lg text-xs font-extrabold text-brand-dark inline-block mb-2">
+              JUL 2023 – DEC 2023
+            </span>
+            <h3 class="font-display text-xl text-brand-dark">Internet Security Tutor</h3>
+            <p class="font-bold text-sm text-brand-hot">Tshwane University of Tech</p>
+          </div>
+          <div class="md:col-span-9 border-t-2 md:border-t-0 md:border-l-2 border-gray-200 pt-4 md:pt-0 md:pl-6">
+            <ul class="space-y-2 text-gray-700 font-medium text-sm sm:text-base list-disc list-inside">
+              <li>Guided students through structured data security concepts, user access metrics, database permissions, and secure coding practices.</li>
+              <li>Emphasized the importance of protecting sensitive data and enforcing input validation across web applications.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= TOOLS I REACH FOR (SKILLS MATRIX) ================= -->
+  <section id="tools" class="py-20 px-4 bg-brand-soft border-t-4 border-brand-dark">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="text-center mb-12">
+        <span class="font-hand text-2xl text-brand-hot block mb-1">tech stack & skills matrix</span>
+        <h2 class="font-display text-4xl sm:text-6xl text-brand-dark">TOOLS I REACH FOR</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- BACKEND -->
+        <div class="neo-card bg-brand-yellow p-6 rounded-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-solid fa-server text-2xl text-brand-dark"></i>
+            <h3 class="font-display text-xl text-brand-dark">BACKEND</h3>
+          </div>
+          <p class="text-xs font-bold text-gray-800 leading-relaxed">
+            C# (.NET Core), Python, PHP, Java, Node.js, RESTful APIs, OOP Principles, Data Validation
+          </p>
+        </div>
+
+        <!-- FRONTEND -->
+        <div class="neo-card bg-brand-pink text-white p-6 rounded-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-solid fa-laptop-code text-2xl text-white"></i>
+            <h3 class="font-display text-xl text-white">FRONTEND</h3>
+          </div>
+          <p class="text-xs font-bold text-white leading-relaxed">
+            JavaScript / TypeScript, React, HTML5, CSS3, Tailwind CSS, Responsive Web Design
+          </p>
+        </div>
+
+        <!-- DATABASES -->
+        <div class="neo-card bg-brand-teal p-6 rounded-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-solid fa-database text-2xl text-brand-dark"></i>
+            <h3 class="font-display text-xl text-brand-dark">DATABASES</h3>
+          </div>
+          <p class="text-xs font-bold text-gray-800 leading-relaxed">
+            MySQL, PostgreSQL, Relational Schema Design, SQL Query Optimization, ORM Concepts
+          </p>
+        </div>
+
+        <!-- AI & LLM TOOLING -->
+        <div class="neo-card bg-brand-lavender p-6 rounded-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-solid fa-robot text-2xl text-brand-dark"></i>
+            <h3 class="font-display text-xl text-brand-dark">AI & LLMs</h3>
+          </div>
+          <p class="text-xs font-bold text-gray-800 leading-relaxed">
+            AI Coding Tools (Copilot, Claude), OpenAI APIs, RAG Concepts, Embeddings, Context Management
+          </p>
+        </div>
+
+        <!-- DEVOPS & TOOLS -->
+        <div class="neo-card bg-white p-6 rounded-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-brands fa-github text-2xl text-brand-dark"></i>
+            <h3 class="font-display text-xl text-brand-dark">DEVOPS & TOOLS</h3>
+          </div>
+          <p class="text-xs font-bold text-gray-800 leading-relaxed">
+            Git & GitHub, Docker Containers, CI/CD Basics, VS Code, CLI, Azure / AWS Basics
+          </p>
+        </div>
+
+        <!-- TESTING & SECURITY -->
+        <div class="neo-card bg-brand-orange text-white p-6 rounded-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fa-solid fa-shield-halved text-2xl text-white"></i>
+            <h3 class="font-display text-xl text-white">SECURITY & QA</h3>
+          </div>
+          <p class="text-xs font-bold text-white leading-relaxed">
+            Unit Testing, Code Reviews, Root-Cause Debugging, POPIA Compliance, Technical Docs
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= LET'S BUILD SOMETHING (CONTACT FOOTER) ================= -->
+  <section id="contact" class="py-20 px-4 bg-brand-dark text-white relative border-t-4 border-brand-dark">
+    <div class="max-w-4xl mx-auto text-center">
+      
+      <!-- Big Callout Heading -->
+      <h2 class="font-display text-5xl sm:text-7xl md:text-8xl text-brand-soft leading-none mb-4">
+        LET'S BUILD <br/>
+        <span class="text-brand-yellow">SOMETHING.</span>
+      </h2>
+
+      <p class="font-hand text-2xl text-brand-pink mb-10">
+        ready to bring energy, clean code, and fast learning to your team! ⚡
+      </p>
+
+      <!-- Envelope / Contact Note Card -->
+      <div class="neo-card bg-white text-brand-dark p-8 rounded-3xl max-w-xl mx-auto text-left relative tape-top">
+        
+        <div class="flex items-center justify-between border-b-2 border-dashed border-gray-300 pb-4 mb-4">
+          <span class="font-bold text-xs uppercase text-gray-500">TO: YOU, THE HIRING MANAGER</span>
+          <span class="neo-btn bg-brand-yellow px-2.5 py-0.5 rounded text-xs font-extrabold">CAPE TOWN</span>
+        </div>
+
+        <p class="text-sm font-medium text-gray-700 mb-6 leading-relaxed">
+          Got a junior software developer opening, a project, or a fintech opportunity? I'm based in Cape Town and ready to get started. Reach out below:
+        </p>
+
+        <!-- Copyable Email Box -->
+        <div class="neo-card bg-brand-soft p-4 rounded-2xl flex items-center justify-between gap-2 mb-6">
+          <div class="truncate">
+            <span class="block text-[10px] font-bold text-brand-hot uppercase">DIRECT EMAIL</span>
+            <span class="font-display text-lg sm:text-xl text-brand-dark">y_mbande@icloud.com</span>
+          </div>
+          <button onclick="copyEmail('y_mbande@icloud.com')" class="neo-btn bg-brand-yellow text-brand-dark px-4 py-2 rounded-xl text-xs font-extrabold hover:bg-white flex items-center gap-1.5 shrink-0">
+            <i class="fa-solid fa-copy"></i>
+            <span>Copy</span>
+          </button>
+        </div>
+
+        <!-- Action Links -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-center">
+          <a href="tel:0657110159" class="neo-btn bg-brand-teal text-brand-dark py-2.5 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 hover:bg-brand-dark hover:text-white">
+            <i class="fa-solid fa-phone"></i>
+            <span>065 711 0159</span>
+          </a>
+          <a href="https://github.com/YolandaMbande" target="_blank" class="neo-btn bg-brand-pink text-white py-2.5 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 hover:bg-brand-dark">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="Yolanda_Mbande_Junior_Developer_CV.pdf" target="_blank" class="col-span-2 sm:col-span-1 neo-btn bg-brand-yellow text-brand-dark py-2.5 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 hover:bg-white">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>CV Doc</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Footer Note -->
+      <div class="mt-16 pt-8 border-t border-gray-800 text-xs font-bold text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span>© 2026 Yolanda Mbande — Junior Software Developer</span>
+        <span class="font-hand text-base text-brand-pink">built with passion in Cape Town 🇿🇦</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+<script src="script.js"></script>
+</body>
+</html>
